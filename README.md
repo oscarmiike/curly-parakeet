@@ -6,7 +6,7 @@ To migrate a suite of critical legacy applications from an aging, on-premise ser
 
 ---
 
-#### **2. Phase 1: The Containerization Investigation**
+#### **2. Phase 1: The Containerisation Investigation**
 
 *   **Objective:** To explore modernising the applications by containerising them, aiming for improved portability, consistency, and streamlined deployments.
 *   **Actions:**
