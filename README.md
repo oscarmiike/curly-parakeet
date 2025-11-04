@@ -1,39 +1,77 @@
-### **Project Summary: Legacy Application Cloud Migration**
+## **Project Summary: Legacy Application Cloud Migration**
 
-#### **1. Primary Objective**
-
-To migrate a suite of critical legacy applications from an aging, on-premise server to a modern, stable, and secure cloud environment on AWS. The immediate driver was the need to decommission the old hardware and establish a sustainable platform for the future.
-
----
-
-#### **2. Phase 1: The Containerisation Investigation**
-
-*   **Objective:** To explore modernising the applications by containerising them, aiming for improved portability, consistency, and streamlined deployments.
-*   **Actions:**
-    *   A proof-of-concept was developed using a Linux container to introduce the workflow.
-    *   Efforts were focused on building a Windows container with IIS to support a mix of .NET Frameworks and .NET Core runtimes.
-*   **Outcome & Key Learning:**
-    *   This approach was deemed impractical for the project's immediate timeline. It introduced significant technical blockers, including long and complex Docker builds, dependency conflicts, and issues with server regional settings that broke application functionality. The strategy, while valuable for future projects, was not the right fit for this urgent migration.
+### **1. Primary Objective**  
+We needed to **move a suite of critical legacy apps** from an **aging on-premise server** to a **modern, stable, secure AWS cloud**.  
+The urgent trigger? **Decommission the old hardware** and build a **sustainable platform for the future**.
 
 ---
 
-#### **3. Phase 2: The Strategic Pivot to a "Lift-and-Shift" Migration**
+### **2. Phase 1 – Containerisation Investigation**  
 
-*   **Objective:** To meet the primary goal quickly and reliably, the strategy shifted to replicating the existing server environment in the cloud (a "lift-and-shift" approach). The priority became stability and speed of migration over immediate modernisation.
-*   **Actions:**
-    *   **Building the Foundation:** A secure and scalable AWS infrastructure was built from the ground up, including best practice structures, Single Sign-On (SSO) for the team, and a new network (VPC).
-    *   **Provisioning the Environment:** A Windows virtual server (EC2) was provisioned to host the applications, and a managed SQL Server database (RDS) was created.
-    *   **Solving Connectivity Challenges:** Secure VPN access for the development team was established. This process involved troubleshooting network routing issues, requring a full rebuild of the cloud network to resolve an IP address conflict.
-    *   **Establishing a Data Migration Process:** A method for backing up on-premise databases and restoring them to the cloud RDS instance was developed. This involved troubleshooting and solving an issue where RDS was restoring incorrect data due to the format of the backup files.
+**Goal:** Modernise the apps by **containerising them** → better portability, consistency, and faster deployments.  
+
+**What we did:**  
+- Built a **Linux container proof-of-concept** to test the workflow.  
+- Focused on a **Windows container with IIS** to support **mixed .NET Framework & .NET Core runtimes**.  
+
+**Result & Key Lesson:**  
+→ **Not feasible for our tight timeline.**  
+We hit **major blockers**:  
+- **Long, complex Docker builds**  
+- **Dependency conflicts**  
+- **Regional settings breaking app functionality**  
+
+*Valuable for future projects, but **not the right path for this urgent migration**.*
 
 ---
 
-#### **4. Current Status & Outcomes**
+### **3. Phase 2 – Strategic Pivot to “Lift-and-Shift”**  
 
-*   **A Viable Cloud Environment is Operational:** The core achievement is the successful creation of a stable and secure development environment in AWS that mirrors the legacy setup. The foundational infrastructure is in place.
-*   **The First Application is Migrated:** The team has successfully deployed the first legacy application ("PriceApp") onto the new server, where it is running and connected to the migrated database. This serves as a successful proof-of-concept for the new architecture.
-*   **A Clear Path Forward:** A repeatable, validated process for migrating the remaining application databases has been established.
-*   **Project In-Progress:** While the ultimate goal has not yet been reached, many technical blockers have been overcome. The project has a clear path to migrating the remaining applications and decommissioning the old server.
+**New Goal:** **Meet the deadline reliably** → **replicate the existing server in the cloud** (lift-and-shift).  
+**Priority:** **Stability & speed** over immediate modernisation.
+
+**What we did – four key workstreams:**
+
+1. **Built the Foundation**  
+   - Secure, scalable **AWS infrastructure from scratch**  
+   - Best-practice structures  
+   - **Single Sign-On (SSO)** for the team  
+   - Brand-new **VPC network**
+
+2. **Provisioned the Environment**  
+   - **Windows EC2 server** to host the apps  
+   - **Managed RDS SQL Server** for the databases
+
+3. **Solved Connectivity**  
+   - Set up **secure VPN** for the dev team  
+   - Hit **network routing issues** → required **full VPC rebuild** to fix **IP conflict**
+
+4. **Created Data Migration Process**  
+   - Backup on-premise DBs → restore to RDS  
+   - Fixed a **restore error** caused by **backup file format**
+
+---
+
+### **4. Current Status & Outcomes**  
+
+**✓ A Viable Cloud Environment is LIVE**  
+- Stable, secure **dev environment** in AWS that **mirrors the legacy setup**  
+- **Foundational infrastructure = complete**
+
+**✓ Applications Migrated**  
+- **“PriceApp”** is **deployed, running**
+- **“InternalAPI”** is **deployed, running**
+- **Proof-of-concept success** for the new architecture
+
+**✓ Clear Path Forward**  
+- **Repeatable, validated process** for the remaining databases
+
+**Project Status: In-Progress**  
+- Ultimate goal not reached **yet**  
+- **Many technical blockers solved**  
+- **Straight runway** to migrate the rest and **decommission the old server**
+
+[Mermaid link](https://simplemermaid.com/mermaid-tool.html#diagram=OYJwhgDgFgBAKgEQFA1TAzgVwEakrAIgAUQB7AKwFMBjAFxgGVawRaCU1OBBAbQB5sAPhIBLALYsAnjADy2KnREA3SnwD0QgSDWCAsiLy1KMADKVgYatK4QI6GADMyY2QDsAtCUpiR6Y7VIYLgB1BgBdDlRKVwATJEigmHd3QRgAIQBvIigwPxgARgAuGABhUldmEVdKEF8wWhFymABJVxV0BosG8oBfAG54zixccGgYYhy8ovgoY11SGJrXOu7XGCJ6qHZOIdpJABtjNMcRff3CgGIHGIcAGg6yAGtKS4Bmd-vaJ8p3AHcRGK0KCFABMEAAHglOMdkqkSjwuIpysUTFVMODSuVKtUQOtSCUIjs0DCUjAEAika5imlMKcYpixBBDhjglUYqRfug1M1mgxMRUwFUaoSiWSkqSAKIZNL7UjUZ4gewS1zUUiYCo1SgxHpQtAS8WpABiPAQlCUMGCpBAjwcst+LXQWEo6BFRMN4sYpH2mFWBpghvyPFESnqxjKAqFuIASuZfF9pBKSlGYFodCUQJRQ-SAowchn1hn3DTTvRmhJgM7XTtdah9bCYABxHjpkQNahgfYwGPARquDuMSi0BquYDpTDAF01mBTuukgASCNCMAAZLI+a1VYz6iJsKdW5Iq5w5x6GF6fb2-XPAwBVCB4Rb0uekDprmA5kEABhBIL6qcE4YcEQQDELUgiXX4rUeKpR3+IEYE-b8IinY962aDJTWoXxe2KU1vFAssIHARR232foEmiOIEmaP0ACkskmYwQWKJhwCMHtqHWZRSHoHMAHJUQcWh3DAWJ3AYKAREE3iyISYY8DGCZckY4o4FmGB9EMC8NiBbZRQ6A5jBok4zkuSgADYHFeBw7geUhnjeD5bOeP4ASBUEISnIz6wAaQpVZqVpfZ6RCPlDTVWJt3KP8ADUiBKW4gmoVV1VodAEoYBgZEPNAvNJEw-OwgtSCULCmmVEqyFcECKj-RMQQHEAVFxVcowQPkEHqMBsCU7LUCnOTRkIbzKGkEocjOaIK3sVdT29VZ0F00U0F0ZtxsOEcXi7bxuOMRFqGdF0TzPX1610XgZAgaJYoAOQapqyUoJlSEkUCHCtP9WqIBKEDSBKRPpQ1Tl2pKDrCP1rtWjt1orYprsHCDrRaIh+VtEQ6F6nZbuST05ovetrsDKNIABf1MDOGA4doBHHi27BApiP8mjh+1mmRomNpgEqwBaMACT9GQeBkH1N02pgusOGAbsS-bHQxzgp04IhIYmjacM67q8hjDorWMQ11UpDt9zB7HZvPJp6yIXhWvXVwOhE-aYFve8tT-JxSBcCVwUIg630CYJKGwGAJRiVte2N0kAEVlehzaNytDM6DJTqYCaLWAgzOW0Ajo7cfNyPA2ZxhoMOMTB3SSxHkwOxSgzLM-xzLWvRULbtfzGlgHD1Io0F4X3c2mNLvViW051oqZcnJb5cntAGGjybNpC-l0C9YwGAOi84HESg1VS8OcbNtZ6wYXgyhABP6CIGofEdC819oP9N5AneUYMTAM3pKpGEyzv4B72gReKARMgKh6SmnNJ7S6tRoj7QxhRQYopcqpF0J5P0RAUFH3IrEeBqAZAri7HguAfprzNjfhmCojBmC0EwNNWQvcQIugGLJHA8lCAkAoDQegYsqHoEAR4NhoADqLR2PpCW15jLnAuDcGyXw7IvAuO8V4nxvguUBMCMEkIlpiPrNFHg+QAB0ksRDizDLKTA9JypAXKNVegvhZCQMin2fYGMtGkmCDwEEBjAaKnoDYJkaMHEwF4qIfavjeLqQMKxUCDBMAg0dA4Mm+wDxThcakAAGjwV4BiuClEOCwdYmx-RWl+CwD+So7bYH2L4WYMQqwUSAA)
 
 ```mermaid
 graph TD
@@ -48,15 +86,15 @@ graph TD
         B --> C[Action: Linux Container PoC]
         B --> D[Action: Build Complex Windows/IIS Container]
         D --> E{Blockers Encountered}
-        E --> F[<b>Challenge:</b> Developer Workflow Issues]
+        E --> F[Dev Workflow Issues]
         F -- Solution --> F1[Private Container Registry ECR <br/>Created to Share Pre-Built Images]
         
-        E --> G[<b>Challenge:</b> Critical Regional Setting Bugs]
+        E --> G[Critical Regional Setting Bugs]
         
-        E --> H[<b>Challenge:</b> .NET & OS Incompatibility]
-        H -- Solution --> H1[Upgraded Host OS to 2022;<br/>Confirmed App Compatibility with .NET 4.8]
+        E --> H[AWS & OS Incompatibility]
+        H -- Solution --> H1[Upgraded Host OS to 2022;<br/>Confirmed AWS working with 2022]
 
-        H --> I{<font color=red><b>Decision: Deemed Impractical</b></font>};
+        H --> I{Decision: Deemed Impractical};
     end
 
     I --> J{Phase 2: Strategic Pivot to 'Lift-and-Shift'};
@@ -67,13 +105,13 @@ graph TD
         J --> L[Action: Provision Environment<br/>EC2 Server & RDS Database]
         
         subgraph "Key Challenges & Solutions"
-            M[<b>Challenge:</b> Remote Access] -- Solution --> MA[OpenVPN Server Deployed for<br/>RDP, DB, and File Access] --> N[<b>Challenge:</b> Network IP Conflict]
-            N -- Solution --> N1[Rapid Full Network Rebuild<br/>on New IP Range via IaC] --> O[<b>Outcome:</b> Stable VPN Access]
+            M[Challenge: Remote Access] -- Solution --> MA[OpenVPN Server Deployed for<br/>RDP, DB, and File Access] --> N[Challenge: Network IP Conflict]
+            N -- Solution --> N1[Rapid Full Network Rebuild<br/>on New IP Range via IaC] --> O[Outcome: Stable VPN Access]
             
-            P[<b>Challenge:</b> Database Restore Permissions] -- Solution --> PA[RDS Instance Upgraded<br/>from Express to Web Edition] --> Q[<b>Challenge:</b> Incorrect Data on Restore]
-            Q -- Solution --> Q1[New Single-Set Backups Created<br/>to Resolve Restore Bug] --> R[<b>Outcome:</b> Repeatable Restore Process]
+            P[Challenge: Database Restore Functionality] -- Solution --> PA[RDS Instance Upgraded<br/>from Express to Web Edition] --> Q[Challenge: Incorrect Data on Restore]
+            Q -- Solution --> Q1[New Single-Set Backups Created<br/>to Resolve Restore Bug] --> R[Outcome: Repeatable Restore Process]
             
-            S[<b>Challenge:</b> AWS Console Session Timeouts] -- Solution --> SA[Correct Permission Set<br/>Timeout Configured in SSO] --> T[<b>Outcome:</b> Improved Dev Experience]
+            S[Challenge: AWS Console Session Timeouts] -- Solution --> SA[Correct Permission Set<br/>Timeout Configured in SSO] --> T[Outcome: Improved Dev Experience]
         end
 
         J --> M
@@ -81,7 +119,7 @@ graph TD
         J --> S
     end
 
-    O & R & T --> U[<b>Current Status & Outcomes</b>];
+    O & R & T --> U[Current Status & Outcomes];
 
     subgraph "Project Status: In-Progress"
         style U fill:#dff,stroke:#333,stroke-width:2px
