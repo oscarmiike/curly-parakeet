@@ -30,7 +30,7 @@ We hit **major blockers**:
 **New Goal:** **replicate the existing server in the cloud** (lift-and-shift).  
 **Priority:** **Stability & speed** over immediate modernisation.
 
-**What we did – four key workstreams:**
+**What we did:**
 
 1. **Built the Foundation**  
    - Secure, scalable **AWS infrastructure from scratch**  
