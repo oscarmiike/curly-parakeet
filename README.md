@@ -1,7 +1,7 @@
 ## **Project Summary: Legacy Application Cloud Migration**
 
 ### **1. Primary Objective**  
-We needed to **move a suite of critical legacy apps** from an **aging on-premise server** to a **modern, stable, secure AWS cloud**.  
+We needed to **move our suite of apps** from an **aging on-premise server** to a **modern, stable, secure AWS cloud**.  
 The urgent trigger? **Decommission the old hardware** and build a **sustainable platform for the future**.
 
 ---
@@ -17,7 +17,7 @@ The urgent trigger? **Decommission the old hardware** and build a **sustainable 
 **Result & Key Lesson:**  
 → **Not feasible for our tight timeline.**  
 We hit **major blockers**:  
-- **Long, complex Docker builds**  
+- **Complex Docker builds**  
 - **Dependency conflicts**  
 - **Regional settings breaking app functionality**  
 
