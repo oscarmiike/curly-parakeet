@@ -27,7 +27,7 @@ We hit **major blockers**:
 
 ### **3. Phase 2 – Strategic Pivot to “Lift-and-Shift”**  
 
-**New Goal:** **Meet the deadline reliably** → **replicate the existing server in the cloud** (lift-and-shift).  
+**New Goal:** **replicate the existing server in the cloud** (lift-and-shift).  
 **Priority:** **Stability & speed** over immediate modernisation.
 
 **What we did – four key workstreams:**
